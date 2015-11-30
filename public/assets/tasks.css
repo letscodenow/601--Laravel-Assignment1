@@ -1,0 +1,126 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-family: Roboto, Arial, sans-serif;
+	font-size: 1.4em;
+	text-rendering: optimizeLegibility;
+	color: #2f3843;
+}
+
+.tasks-header {
+	margin: 48px 0;
+	text-align: center;
+}
+
+.tasks-header__title {
+	font-size: 3.2rem;
+	font-weight: 400;
+}
+
+.tasks-header__description {
+	margin: 16px 0 20px;
+	font-size: 1.5rem;
+	color: #526072;
+}
+
+.tasks-header__users-dropdown {
+	height: 32px;
+	min-width: 200px;
+	border: solid 1px #dee7ef;
+	background: #fff;
+	font: 500 1.2rem Roboto, Arial, sans-serif;
+	cursor: pointer;
+	-webkit-transition: background .15s, box-shadow .15s, border .15s;
+			 -o-transition: background .15s, box-shadow .15s, border .15s;
+					transition: background .15s, box-shadow .15s, border .15s;
+}
+
+.tasks-header__users-dropdown:hover {
+	background: #fbfcfd;
+}
+
+.tasks-header__users-dropdown:focus {
+	outline: none;
+	border-color: #53b9f3;
+	-webkit-box-shadow: 0 0 12px rgba(83, 185, 243, .2);
+					box-shadow: 0 0 12px rgba(83, 185, 243, .2);
+}
+
+.tasks-list {
+	width: 600px;
+	margin: 0 auto 48px;
+	list-style: none;
+}
+
+.tasks-list__task {
+	position: relative;
+	padding: 20px 0;
+	border-top: solid 1px #eaeff3;
+	cursor: default;
+}
+
+.tasks-list__task:before {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	left: -36px;
+	margin-top: -3px;
+	width: 6px;
+	height: 6px;
+	opacity: 0;
+	border-radius: 50%;
+	background: #53b9f3;
+	-webkit-transition: opacity .12s;
+			 -o-transition: opacity .12s;
+					transition: opacity .12s;
+}
+
+.tasks-list__task:hover::before {
+	opacity: 1;
+}
+
+.tasks-list__task--absent {
+	text-align: center;
+	padding: 48px 0;
+}
+
+.tasks-list__task--error {
+	padding: 12px;
+	margin-bottom: 48px;
+	border-top: none;
+	background: #d34858;
+	text-align: center;
+	color: #fff;
+	border-radius: 5px;
+}
+
+.tasks-list__task--error::after {
+	content: attr(data-error);
+}
+
+.tasks-list__task--absent:hover::before,
+.tasks-list__task--error:hover::before {
+	opacity: 0;
+}
+
+.tasks-list__task--hidden {
+	display: none;
+}
+
+.tasks-list__task-title {
+	margin-bottom: 6px;
+	font-size: 1.4rem;
+	font-weight: 500;
+}
+
+.tasks-list__task-assignee {
+	color: #6e7d8e;
+}

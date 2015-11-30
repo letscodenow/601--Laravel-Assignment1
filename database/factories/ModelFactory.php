@@ -13,9 +13,13 @@
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->email,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
+        'user_name' => $faker->name
+    ];
+});
+
+$factory->define(App\Task::class, function (Faker\Generator $faker) {
+    return [
+        'task_title' => $faker->sentence($nbWords = 12),
+        'user_id'    => $faker->numberBetween(1, 12)
     ];
 });
